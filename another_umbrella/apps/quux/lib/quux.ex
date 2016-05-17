@@ -1,0 +1,2 @@
+defmodule Quux do
+end

@@ -1,14 +1,14 @@
-defmodule Foo.Mixfile do
+defmodule Quux.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :foo,
+    [app: :quux,
      version: "0.0.1",
      build_path: "../../_build",
      config_path: "../../config/config.exs",
      deps_path: "../../deps",
      lockfile: "../../mix.lock",
-     elixir: "~> 1.2-dev",
+     elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
@@ -35,19 +35,6 @@ defmodule Foo.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [
-      {:bar, in_umbrella: true},
-      {:baz, path: Path.expand("../../another_umbrella/apps/baz", __DIR__)},
-    ] ++ optional_quux_dependency
-  end
-
-  if System.get_env("DEPEND_ON_QUUX") do
-    defp optional_quux_dependency do
-      [{:quux, path: Path.expand("../../another_umbrella/apps/quux", __DIR__)}]
-    end
-  else
-    defp optional_quux_dependency do
-      []
-    end
+    []
   end
 end
