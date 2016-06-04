@@ -35,6 +35,9 @@ defmodule Foo.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:bar, in_umbrella: true}]
+    case System.get_env("BAR_DEP") do
+      "path" -> [{:bar, path: Path.expand("../bar", __DIR__) |> IO.inspect}]
+      "umbrella" -> [{:bar, in_umbrella: true}]
+    end
   end
 end

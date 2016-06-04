@@ -1,8 +1,8 @@
 defmodule FooTest do
   use ExUnit.Case
-  doctest Foo
+  import Bar.TestHelper
 
-  test "the truth" do
-    assert 1 + 1 == 2
+  test "ok" do
+    assert hello == :world
   end
 end
